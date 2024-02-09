@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  node:
+    image: node:20-alpine
+    container_name: fullcycle-node
+    command: npm run start
+    volumes:
+      - .:/app
+    working_dir: /app
+    expose:
+      - "3000"
+    depends_on:
+      - db
+
+  nginx:
+    image: nginx:1.25.3-alpine
+    container_name: fullcycle-nginx
+    ports:
+      - "8080:80"
+    expose:
+      - "80"
+    volumes:
+      - ./default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - node
+
+  db:
+    image: mysql:8.3
+    container_name: fullcycle-mysql
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./.mysql:/var/lib/mysql
+      - bootstrap.sql:/docker-entrypoint-initdb.d/1.sql
+    environment:
+      MYSQL_USER: "root"
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+      MYSQL_DATABASE: fullcycle

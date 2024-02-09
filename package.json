@@ -1,0 +1,19 @@
+{
+  "name": "desafio-proxy-fullcycle",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/diegosurita/desafio-proxy-fullcycle.git"
+  },
+  "author": "Diego Surita <suritadev@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/diegosurita/desafio-proxy-fullcycle/issues"
+  },
+  "homepage": "https://github.com/diegosurita/desafio-proxy-fullcycle#readme"
+}
