@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start": "node index.js"
   },
@@ -15,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/diegosurita/desafio-proxy-fullcycle/issues"
   },
-  "homepage": "https://github.com/diegosurita/desafio-proxy-fullcycle#readme"
+  "homepage": "https://github.com/diegosurita/desafio-proxy-fullcycle#readme",
+  "dependencies": {
+    "@faker-js/faker": "^8.4.1",
+    "mysql2": "^3.9.1"
+  }
 }
