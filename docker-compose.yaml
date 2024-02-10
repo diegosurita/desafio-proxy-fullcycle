@@ -1,4 +1,4 @@
-version: '3.8'
+version: "3.8"
 
 services:
   node:
@@ -11,7 +11,8 @@ services:
     expose:
       - "3000"
     depends_on:
-      - db
+      db:
+        condition: service_healthy
 
   nginx:
     image: nginx:1.25.3-alpine
@@ -34,3 +35,9 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: "root"
       MYSQL_DATABASE: fullcycle
+    healthcheck:
+      test: ["CMD", "mysqladmin", "-uroot", "-proot", "ping", "-hlocalhost"]
+      interval: 5s
+      timeout: 10s
+      retries: 3
+      start_period: 3s
